@@ -1,0 +1,125 @@
+body {
+  background-color: #fff3e0; /* soft pastel orange */
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+/* Container */
+.add-recipe {
+  width: 95%;
+  max-width: 1350px;
+  margin: 2rem 0 2rem 2%;   /* left-anchored, slight gutter */
+  padding: 2rem;
+  background: #f5f9fc;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  text-align: left;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;    /* safer sizing baseline */
+}
+
+/* Inputs (scoped—avoid global leakage) */
+.add-recipe input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.add-recipe input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 3px #2563eb55;
+}
+
+/* Headings / section titles */
+.add-recipe p {
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Forms */
+.recipe-form
+{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+.ingredients-input {
+  display: flex;
+  gap: 0.5rem;       /* keeps them close but not glued */
+  align-items: center;
+}
+
+#ingredient {
+  flex: 1;           /* fills available space */
+  width: 180px;  /* never shrink too small */
+}
+
+#quantity {
+  width: 60px;       /* fixed smaller size */
+}
+
+/* Labels (scoped to avoid global styling) */
+.add-recipe label {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* Buttons (scoped) */
+.add-recipe button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+
+.add-recipe button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Lists — wrapping long text */
+.ingredient-list li,
+.instruction-list li {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+  white-space: normal;
+  overflow-wrap: anywhere; /* breaks super-long words/URLs */
+  max-width: 90%;
+}
+.submit-btn{
+  align-self: center;
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+}
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background:#e6f2ff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+   
+}
+.popup button + button {
+  margin-left: 10px;
+}
