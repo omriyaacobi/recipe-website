@@ -43,14 +43,27 @@ body {
 }
 
 /* Forms */
-.recipe-form,
-.ingredients-section form,
-.instructions-section form {
+.recipe-form
+{
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
   align-items: flex-start;
+}
+.ingredients-input {
+  display: flex;
+  gap: 0.5rem;       /* keeps them close but not glued */
+  align-items: center;
+}
+
+#ingredient {
+  flex: 1;           /* fills available space */
+  width: 180px;  /* never shrink too small */
+}
+
+#quantity {
+  width: 60px;       /* fixed smaller size */
 }
 
 /* Labels (scoped to avoid global styling) */
@@ -84,6 +97,12 @@ body {
   white-space: normal;
   overflow-wrap: anywhere; /* breaks super-long words/URLs */
   max-width: 90%;
+}
+.submit-btn{
+  align-self: center;
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
 }
 .popup-overlay {
   position: fixed;

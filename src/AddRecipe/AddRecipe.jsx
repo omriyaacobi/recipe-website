@@ -1,91 +1,13 @@
 import { useState } from "react";
 import "./AddRecipe.css";
 import { useNavigate } from "react-router-dom";
-
-const AddInstructions = ({ setInstructionList }) => {
-  const [instruction, setInstruction] = useState("");
-
-  const addInstruction = () => {
-    if (!instruction.trim()) return;
-    setInstructionList((prev) => [...prev, instruction.trim()]);
-    setInstruction("");
-  };
-
-  return (
-    <div className="instructions-input">
-      <label htmlFor="instruction">Instruction:</label>
-      <input
-        id="instruction"
-        name="instructionName"
-        type="text"
-        value={instruction}
-        onChange={(e) => setInstruction(e.target.value)}
-        onKeyDown={(e) =>
-          e.key === "Enter" && (e.preventDefault(), addInstruction())
-        }
-      />
-      <button type="button" onClick={addInstruction}>
-        Add instruction
-      </button>
-    </div>
-  );
-};
-
-const AddIngredients = ({ setIngredientList }) => {
-  const [ingredientName, setIngredientName] = useState("");
-  const [ingredientQuantity, setIngredientQuantity] = useState("");
-
-  const addIngredient = () => {
-    if (!ingredientName.trim() || !ingredientQuantity.toString().trim()) return;
-    setIngredientList((prev) => [
-      ...prev,
-      {
-        ingredientName: ingredientName.trim(),
-        ingredientQuantity: ingredientQuantity.toString().trim(),
-      },
-    ]);
-    setIngredientName("");
-    setIngredientQuantity("");
-  };
-
-  return (
-    <div className="ingredients-input">
-      <div id="ingredient-name">
-        <label htmlFor="ingredient">Ingredient:</label>
-        <input
-          id="ingredient"
-          name="ingredientName"
-          type="text"
-          value={ingredientName}
-          onChange={(e) => setIngredientName(e.target.value)}
-          onKeyDown={(e) =>
-            e.key === "Enter" && (e.preventDefault(), addIngredient())
-          }
-        />
-      </div>
-      <label htmlFor="quantity">Quantity:</label>
-      <input
-        id="quantity"
-        name="ingredientQuantity"
-        type="number"
-        value={ingredientQuantity}
-        onChange={(e) => setIngredientQuantity(e.target.value)}
-        onKeyDown={(e) =>
-          e.key === "Enter" && (e.preventDefault(), addIngredient())
-        }
-      />
-
-      <button type="button" onClick={addIngredient}>
-        Add ingredient
-      </button>
-    </div>
-  );
-};
+import AddInstructions from "./Components/AddInstructions";
+import AddIngredients from "./Components/AddIngredients";
 
 const AddRecipe = ({ setRecipeList }) => {
   const [ingredientList, setIngredientList] = useState([]);
   const [name, setName] = useState("");
-  const [timeToMake, setTimeToMake] = useState("");
+  const [preparationTime, setPreparationTime] = useState("");
   const [instructionList, setInstructionList] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
 
@@ -93,16 +15,22 @@ const AddRecipe = ({ setRecipeList }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!name.trim() || !ingredientList.length || !instructionList.length) {
+      alert(
+        "Please fill in all fields and add at least one ingredient and instruction."
+      );
+      return;
+    }
     const recipe = {
       name: name.trim(),
-      timeToMake: Number(timeToMake) || "Unknown",
+      preparationTime: Number(preparationTime) || "Unknown",
       ingredients: ingredientList,
       instructions: instructionList,
     };
     setRecipeList((prev) => [...prev, recipe]);
 
     setName("");
-    setTimeToMake("");
+    setPreparationTime("");
     setIngredientList([]);
     setInstructionList([]);
     setShowPopup(true);
@@ -126,8 +54,8 @@ const AddRecipe = ({ setRecipeList }) => {
           id="time"
           name="time"
           type="number"
-          value={timeToMake}
-          onChange={(e) => setTimeToMake(e.target.value)}
+          value={preparationTime}
+          onChange={(e) => setPreparationTime(e.target.value)}
         />
 
         <div className="ingredients-section">
