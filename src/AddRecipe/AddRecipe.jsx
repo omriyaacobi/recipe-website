@@ -1,6 +1,8 @@
 import { useState } from "react";
-import "./AddRecipe.css";
 import { useNavigate } from "react-router-dom";
+
+import "./AddRecipe.css";
+
 import AddInstructions from "./Components/AddInstructions";
 import AddIngredients from "./Components/AddIngredients";
 
@@ -15,7 +17,9 @@ const AddRecipe = ({ setRecipeList }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name.trim() || !ingredientList.length || !instructionList.length) {
+    const notEnoughInfo =
+      !name.trim() || !ingredientList.length || !instructionList.length;
+    if (notEnoughInfo) {
       alert(
         "Please fill in all fields and add at least one ingredient and instruction."
       );

@@ -7,7 +7,7 @@ body {
 .add-recipe {
   width: 95%;
   max-width: 1350px;
-  margin: 2rem 0 2rem 2%;   /* left-anchored, slight gutter */
+  margin: 2rem 0 2rem 2%;   /* left align with some margin */
   padding: 2rem;
   background: #f5f9fc;
   border-radius: 10px;
@@ -17,7 +17,7 @@ body {
   box-sizing: border-box;    /* safer sizing baseline */
 }
 
-/* Inputs (scoped—avoid global leakage) */
+/* Input fields (scoped to avoid global styling) */
 .add-recipe input {
   width: 100%;
   max-width: 400px;

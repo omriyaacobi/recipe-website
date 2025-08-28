@@ -7,7 +7,9 @@ const AddIngredients = ({ setIngredientList }) => {
   const ingredientRef = useRef(null);
 
   const addIngredient = () => {
-    if (!ingredientName.trim() || !ingredientQuantity.toString().trim()) return;
+    const cantAdd =
+      !ingredientName.trim() || !ingredientQuantity.toString().trim();
+    if (cantAdd) return;
     const newIngredient = { ingredientName, ingredientQuantity };
     setIngredientList((prev) => [...prev, newIngredient]);
 

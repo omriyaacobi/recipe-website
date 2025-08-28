@@ -4,7 +4,8 @@ const AddInstructions = ({ setInstructionList }) => {
   const [instruction, setInstruction] = useState("");
 
   const addInstruction = () => {
-    if (!instruction.trim()) return;
+    const emptyInstruction = !instruction.trim();
+    if (emptyInstruction) return;
     setInstructionList((prev) => [...prev, instruction.trim()]);
     setInstruction("");
   };
