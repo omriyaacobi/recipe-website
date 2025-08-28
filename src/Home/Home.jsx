@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
+import "./Home.css";
 
 const Home = ({ recipeList }) => {
   return (
     <div>
       <h1>Welcome To Your Recipe Collection</h1>
+      <ul>
+        {recipeList.map((r, i) => (
+          <li key={i}>{r.name}</li>
+        ))}
+      </ul>
       <p>
         you are free to reviewe to recipes that have been added or add a new one
       </p>

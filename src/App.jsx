@@ -10,21 +10,17 @@ const App = () => {
 
   return (
     <>
-      <div>
-        <Routes>
-          <Route path="/" element={<Home recipeList={recipeList} />} />
-          <Route path="/about" element={<About />} />
-          <Route
-            path="/AddRecipe"
-            element={
-              <AddRecipe
-                recipeList={recipeList}
-                setRecipeList={setRecipeList}
-              />
-            }
-          />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home recipeList={recipeList} />} />
+        <Route path="/about" element={<About />} />
+        <Route
+          path="/AddRecipe"
+          element={
+            <AddRecipe recipeList={recipeList} setRecipeList={setRecipeList} />
+          }
+        />
+      </Routes>
+
       <nav>
         {/* <Link to="/">Home</Link> */}
         <Link to="/about">About</Link>

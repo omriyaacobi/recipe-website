@@ -8,7 +8,12 @@ const AddInstructions = ({ setInstructionList }) => {
     setInstructionList((prev) => [...prev, instruction.trim()]);
     setInstruction("");
   };
-
+  const onEnter = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      addInstruction();
+    }
+  };
   return (
     <div className="instructions-input">
       <label htmlFor="instruction">Instruction:</label>
@@ -18,9 +23,7 @@ const AddInstructions = ({ setInstructionList }) => {
         type="text"
         value={instruction}
         onChange={(e) => setInstruction(e.target.value)}
-        onKeyDown={(e) =>
-          e.key === "Enter" && (e.preventDefault(), addInstruction())
-        }
+        onKeyDown={onEnter}
       />
       <button type="button" onClick={addInstruction}>
         Add instruction

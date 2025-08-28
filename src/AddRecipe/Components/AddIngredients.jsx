@@ -3,22 +3,24 @@ import { useState, useRef } from "react";
 const AddIngredients = ({ setIngredientList }) => {
   const [ingredientName, setIngredientName] = useState("");
   const [ingredientQuantity, setIngredientQuantity] = useState("");
+
   const ingredientRef = useRef(null);
 
   const addIngredient = () => {
     if (!ingredientName.trim() || !ingredientQuantity.toString().trim()) return;
-    setIngredientList((prev) => [
-      ...prev,
-      {
-        ingredientName: ingredientName.trim(),
-        ingredientQuantity: ingredientQuantity.toString().trim(),
-      },
-    ]);
+    const newIngredient = { ingredientName, ingredientQuantity };
+    setIngredientList((prev) => [...prev, newIngredient]);
+
     setIngredientName("");
     setIngredientQuantity("");
     ingredientRef.current.focus();
   };
-
+  const onEnter = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      addIngredient();
+    }
+  };
   return (
     <div>
       <div className="ingredients-input">
@@ -31,9 +33,7 @@ const AddIngredients = ({ setIngredientList }) => {
             type="text"
             value={ingredientName}
             onChange={(e) => setIngredientName(e.target.value)}
-            onKeyDown={(e) =>
-              e.key === "Enter" && (e.preventDefault(), addIngredient())
-            }
+            onKeyDown={onEnter}
           />
         </div>
         <label htmlFor="quantity">Quantity:</label>
@@ -43,9 +43,7 @@ const AddIngredients = ({ setIngredientList }) => {
           type="number"
           value={ingredientQuantity}
           onChange={(e) => setIngredientQuantity(e.target.value)}
-          onKeyDown={(e) =>
-            e.key === "Enter" && (e.preventDefault(), addIngredient())
-          }
+          onKeyDown={onEnter}
         />
       </div>
       <button type="button" onClick={addIngredient}>

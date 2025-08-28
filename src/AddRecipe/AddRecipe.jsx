@@ -29,13 +29,15 @@ const AddRecipe = ({ setRecipeList }) => {
     };
     setRecipeList((prev) => [...prev, recipe]);
 
+    resetFields();
+  };
+  const resetFields = () => {
     setName("");
     setPreparationTime("");
     setIngredientList([]);
     setInstructionList([]);
     setShowPopup(true);
   };
-
   return (
     <div className="add-recipe">
       {/* SINGLE form wraps everything */}
