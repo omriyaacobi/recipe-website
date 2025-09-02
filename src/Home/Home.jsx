@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import RecipeCard from "./Components/RecipeCard";
+import RecipeCard from "./Components/RecipeCard.jsx";
 
 const Home = ({ recipeList = [] }) => {
   const hasRecipes = Array.isArray(recipeList) && recipeList.length > 0;
@@ -10,7 +10,10 @@ const Home = ({ recipeList = [] }) => {
     <>
       <div className="home">
         <header className="home__header">
-          <h1 className="home__title">Your Recipe Collection</h1>
+          <h2>
+            Welcome you fat wonderful fuck! Here you can find and create any
+            type of meal to you choice. Enjoy and try not to get diabetes.
+          </h2>
         </header>
 
         {hasRecipes ? (
@@ -36,11 +39,12 @@ const Home = ({ recipeList = [] }) => {
             </Link>
           </section>
         )}
-      </div>
-      <div>
-        <Link to="/AddRecipe" className="btn btn--primary">
-          + Add Recipe
-        </Link>
+
+        <div>
+          <Link to="/AddRecipe" className="btn btn--primary">
+            + Add Recipe
+          </Link>
+        </div>
       </div>
     </>
   );
