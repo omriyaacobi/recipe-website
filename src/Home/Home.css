@@ -1,5 +1,96 @@
-body{
-    background-color: #960a0a;
-    font-family: Arial, sans-serif;
-    color: #333;
+body {
+  background-color: #fff3e0; /* soft pastel orange */
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+/* Base layout */
+.home {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #111827; /* slate-900 */
+}
+
+/* Header */
+.home__header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.home__title {
+  margin: 0;
+  font-size: 1.75rem;
+  letter-spacing: 0.2px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 120ms ease;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn--primary {
+  background: #111827;
+  color: #fff;
+  box-shadow: 0 6px 140px rgba(17, 24, 39, 0.18);
+}
+.btn--primary:hover { background: #0b1220; }
+
+.btn--ghost {
+  background: transparent;
+  color: #111827;
+  border-color: #e5e7eb; /* gray-200 */
+}
+.btn--ghost:hover { background: #f9fafb; }
+
+/* Empty state */
+.home__empty {
+  margin-top: 40px;
+  padding: 40px;
+  border: 1px dashed #e5e7eb;
+  border-radius: 14px;
+  text-align: center;
+  background: #fafafa;
+}
+.home__muted { color: #6b7280; margin: 6px 0 16px; }
+
+/* Card grid: 3 per row on desktop */
+.card-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Make it responsive */
+@media (max-width: 1024px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .home__header { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
+}
+
+/* Anchor wrapping the card */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+.card-link:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.45);
+  border-radius: 12px;
+  outline-offset: 4px;
 }

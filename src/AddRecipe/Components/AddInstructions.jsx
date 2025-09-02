@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const AddInstructions = ({ setInstructionList }) => {
   const [instruction, setInstruction] = useState("");
+  const [noInstructionError, setNoInstructionError] = useState(false);
 
   const addInstruction = () => {
     const emptyInstruction = !instruction.trim();
