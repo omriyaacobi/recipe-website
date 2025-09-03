@@ -1,21 +1,20 @@
 .navbar {
-  position: fixed;         /* stays pinned to top */
+  position: fixed;        
   top: 0;
   left: 0;
   right: 0;
   
-  display: flex;           /* flex container */
-  justify-content: space-between; /* logo left, links right */
-  align-items: center;     /* vertical centering */
+  display: flex;        
+  justify-content: space-between; 
+  align-items: center;     
 
   background: #111827; /* dark slate */
   color: #fff;
 
   padding: 0 2rem;
   height: 64px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-
-  z-index: 1000;
+  
+  z-index: 1;
 }
 
 .navbar__logo {
@@ -25,8 +24,9 @@
 }
 
 .navbar__links {
-  display: flex;   /* flex for the links themselves */
-  gap: 1rem;       /* spacing between links */
+  display: flex;  
+  gap: 1rem;       
+
 }
 
 .nav-link {
@@ -57,7 +57,4 @@
   background: #d97706;
 }
 
-/* offset content so it isn’t hidden under navbar */
-.app-content {
-  padding-top: 70px;
-}
+

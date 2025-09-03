@@ -3,18 +3,21 @@ import { useState } from "react";
 
 import "./App.css";
 
+import { recipes } from "./Data/RecipesData.js";
 import Navbar from "./Home/Components/Navbar.jsx";
 import Home from "./Home/Home.jsx";
 import About from "./About.jsx";
 import AddRecipe from "./AddRecipe/AddRecipe.jsx";
 
 const App = () => {
-  const [recipeList, setRecipeList] = useState([]);
+  const [recipeList, setRecipeList] = useState(recipes);
 
   return (
     <>
       <div className="background-image" />
+
       <Navbar />
+
       <div className="app-content">
         <Routes>
           <Route path="/" element={<Home recipeList={recipeList} />} />

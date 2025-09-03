@@ -1,33 +1,17 @@
-
-/* Base layout */
 .home {
-  background: rgba(255, 248, 240, 0.9);
+  background: rgba(255, 248, 240, 0.9); 
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   max-width: 800px;
-  margin: 8px auto 0 auto; /* 👈 pushes it down below navbar */
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   color: #111827;
 }
 
-
-/* Header */
 .home__header {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
+  background: rgba(229, 231, 235, 0.8);
+  border-radius: 12px;
 }
 
-.home__title {
-  margin: 0;
-  font-size: 1.75rem;
-  letter-spacing: 0.2px;
-}
-
-/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -47,6 +31,7 @@
   background: #111827;
   color: #fff;
   box-shadow: 0 6px 140px rgba(17, 24, 39, 0.18);
+  margin-top: 20px;
 }
 .btn--primary:hover { background: #0b1220; }
 

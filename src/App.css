@@ -43,18 +43,12 @@
 .background-image {
   position: fixed;
   inset: 0;
-  background: url("/background.webp") center / cover no-repeat;
-  z-index: -1;          /* behind content */
-  pointer-events: none; /* don’t block clicks */
+  background: url("/background.webp") ;
+  z-index: -1;        
+  pointer-events: none; 
 }
-
-body {
-  margin: 0;
-  background: transparent; /* no white background */
-}
-
 .app-content {
-  position: relative; /* ensures it's above the background */
-  z-index: 1;
+  padding-top: 70px;
 }
+
 
