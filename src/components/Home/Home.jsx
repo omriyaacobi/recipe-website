@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import RecipeCard from "./Components/RecipeCard.jsx";
+import RecipeCard from "../RecipeCard/RecipeCard";
 
 const Home = ({ recipeList = [] }) => {
   const hasRecipes = Array.isArray(recipeList) && recipeList.length > 0;
@@ -29,19 +29,16 @@ const Home = ({ recipeList = [] }) => {
             ))}
           </section>
         ) : (
-          <section className="home__empty">
+          <section className="empty-home">
             <p>No recipes yet.</p>
-            <p className="home__muted">
+            <p className="empty-home-message">
               Start by adding your first recipe — you can always edit later.
             </p>
-            <Link to="/AddRecipe" className="btn btn--ghost">
-              Create a recipe
-            </Link>
           </section>
         )}
 
         <div>
-          <Link to="/AddRecipe" className="btn btn--primary">
+          <Link to="/AddRecipe" className="btn btn-primary">
             + Add Recipe
           </Link>
         </div>

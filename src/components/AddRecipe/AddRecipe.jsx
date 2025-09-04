@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import "./AddRecipe.css";
 
-import AddInstructions from "./Components/AddInstructions";
-import AddIngredients from "./Components/AddIngredients";
+import AddInstructions from "./AddInstructions/AddInstructions";
+import AddIngredients from "./AddIngredients/AddIngredients";
 
 const mealTypeOptions = ["Breakfast", "Lunch", "Dinner", "Dessert"];
 

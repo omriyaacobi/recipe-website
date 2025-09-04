@@ -4,10 +4,10 @@ import { useState } from "react";
 import "./App.css";
 
 import { recipes } from "./Data/RecipesData.js";
-import Navbar from "./Home/Components/Navbar.jsx";
-import Home from "./Home/Home.jsx";
+import Navbar from "./components/Layout/Navbar/Navbar.jsx";
+import Home from "./components/Home/Home.jsx";
 import About from "./About.jsx";
-import AddRecipe from "./AddRecipe/AddRecipe.jsx";
+import AddRecipe from "./components/AddRecipe/AddRecipe.jsx";
 
 const App = () => {
   const [recipeList, setRecipeList] = useState(recipes);
