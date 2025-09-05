@@ -8,6 +8,7 @@ import Navbar from "./components/Layout/Navbar/Navbar.jsx";
 import Home from "./components/Home/Home.jsx";
 import About from "./About.jsx";
 import AddRecipe from "./components/AddRecipe/AddRecipe.jsx";
+import CategoryPages from "./components/CatergoryPages/CategoryPages.jsx";
 
 const App = () => {
   const [recipeList, setRecipeList] = useState(recipes);
@@ -22,10 +23,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home recipeList={recipeList} />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/breakfast" element={<Category name="Breakfast" />} />
-          <Route path="/lunch" element={<Category name="Lunch" />} />
-          <Route path="/dinner" element={<Category name="Dinner" />} />
-          <Route path="/dessert" element={<Category name="Dessert" />} /> */}
+          <Route
+            path="/:category"
+            element={<CategoryPages recipeList={recipeList} />}
+          />
           <Route
             path="/AddRecipe"
             element={<AddRecipe setRecipeList={setRecipeList} />}

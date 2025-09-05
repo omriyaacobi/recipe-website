@@ -6,7 +6,7 @@ import "./AddRecipe.css";
 import AddInstructions from "./AddInstructions/AddInstructions";
 import AddIngredients from "./AddIngredients/AddIngredients";
 
-const mealTypeOptions = ["Breakfast", "Lunch", "Dinner", "Dessert"];
+const mealTypeOptions = ["breakfast", "lunch", "dinner", "dessert"];
 
 const AddRecipe = ({ setRecipeList }) => {
   const [ingredientList, setIngredientList] = useState([]);
