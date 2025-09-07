@@ -45,6 +45,7 @@ const AddRecipe = ({ setRecipeList }) => {
     }
 
     const recipe = {
+      id: crypto.randomUUID(),
       name: name.trim(),
       mealTypes,
       preparationTime: Number(preparationTime) || "Unknown",

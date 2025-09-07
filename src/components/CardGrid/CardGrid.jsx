@@ -13,8 +13,8 @@ const CardGrid = ({ recipeList, header }) => {
         <div className="card-grid">
           {recipeList.map((recipe) => (
             <Link
-              key={recipe.id ?? recipe.name}
-              to={`/recipe/${recipe.id ?? ""}`}
+              key={recipe.id}
+              to={`/recipes/${recipe.id}`}
               className="card-link"
             >
               <RecipeCard name={recipe.name} time={recipe.preparationTime} />

@@ -9,6 +9,7 @@ import Home from "./components/Home/Home.jsx";
 import About from "./About.jsx";
 import AddRecipe from "./components/AddRecipe/AddRecipe.jsx";
 import CategoryPages from "./components/CatergoryPages/CategoryPages.jsx";
+import RecipePage from "./components/RecipePage/RecipePage.jsx";
 
 const App = () => {
   const [recipeList, setRecipeList] = useState(recipes);
@@ -22,6 +23,11 @@ const App = () => {
       <div className="app-content">
         <Routes>
           <Route path="/" element={<Home recipeList={recipeList} />} />
+          <Route
+            path="/recipes/:id"
+            element={<RecipePage recipeList={recipeList} />}
+          />
+
           <Route path="/about" element={<About />} />
           <Route
             path="/:category"
