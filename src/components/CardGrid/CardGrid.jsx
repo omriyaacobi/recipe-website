@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import RecipeCard from "../RecipeCard/RecipeCard";
+import RecipeNotFound from "../RecipeNotFound/RecipeNotFound";
 import "./CardGrid.css";
 
 const CardGrid = ({ recipeList, header }) => {
@@ -22,12 +23,7 @@ const CardGrid = ({ recipeList, header }) => {
           ))}
         </div>
       ) : (
-        <section className="empty-home">
-          <p>No recipes yet.</p>
-          <p className="empty-home-message">
-            Start by adding your first recipe — you can always edit later.
-          </p>
-        </section>
+        <RecipeNotFound />
       )}
     </div>
   );

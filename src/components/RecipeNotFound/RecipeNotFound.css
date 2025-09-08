@@ -1,0 +1,12 @@
+.recipe-not-found {
+  margin-top: 40px;
+  padding: 40px;
+  border: 1px dashed #e5e7eb;
+  border-radius: 14px;
+  text-align: center;
+  background: #fafafa;
+}
+.recipe-not-found-message {
+  color: #6b7280;
+  margin: 6px 0 16px;
+}

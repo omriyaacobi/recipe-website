@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import "../Components.css";
 import "./AddRecipe.css";
 
 import AddInstructions from "./AddInstructions/AddInstructions";
@@ -80,97 +81,99 @@ const AddRecipe = ({ setRecipeList }) => {
   };
 
   return (
-    <div className="add-recipe">
-      <form className="recipe-form" onSubmit={handleSubmit}>
-        <label htmlFor="recipeName">What are we making?</label>
-        <input
-          id="recipeName"
-          name="recipeName"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+    <div className="home">
+      <div className="add-recipe">
+        <form className="recipe-form" onSubmit={handleSubmit}>
+          <label htmlFor="recipeName">What are we making?</label>
+          <input
+            id="recipeName"
+            name="recipeName"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
 
-        <p>Meal type (choose one or more):</p>
-        <div className="checkbox-group" role="group" aria-label="Meal types">
-          {mealTypeOptions.map((type) => (
-            <label key={type} className="checkbox-item">
-              <input
-                type="checkbox"
-                value={type}
-                checked={mealTypes.includes(type)}
-                onChange={() => toggleMealType(type)}
-              />
-              <span>{type}</span>
-            </label>
-          ))}
-        </div>
+          <p>Meal type (choose one or more):</p>
+          <div className="checkbox-group" role="group" aria-label="Meal types">
+            {mealTypeOptions.map((type) => (
+              <label key={type} className="checkbox-item">
+                <input
+                  type="checkbox"
+                  value={type}
+                  checked={mealTypes.includes(type)}
+                  onChange={() => toggleMealType(type)}
+                />
+                <span>{type}</span>
+              </label>
+            ))}
+          </div>
 
-        <label htmlFor="time">Time to make (in minutes):</label>
-        <input
-          id="time"
-          name="time"
-          type="number"
-          min="0"
-          inputMode="numeric"
-          value={preparationTime}
-          onChange={(e) => setPreparationTime(e.target.value)}
-        />
+          <label htmlFor="time">Time to make (in minutes):</label>
+          <input
+            id="time"
+            name="time"
+            type="number"
+            min="0"
+            inputMode="numeric"
+            value={preparationTime}
+            onChange={(e) => setPreparationTime(e.target.value)}
+          />
 
-        <label htmlFor="dishImage">Dish image (optional):</label>
-        <input
-          id="dishImage"
-          name="dishImage"
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          className="file-input"
-        />
-        {imageDataUrl && (
-          <div className="image-preview">
-            <img src={imageDataUrl} alt="Dish preview" />
+          <label htmlFor="dishImage">Dish image (optional):</label>
+          <input
+            id="dishImage"
+            name="dishImage"
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="file-input"
+          />
+          {imageDataUrl && (
+            <div className="image-preview">
+              <img src={imageDataUrl} alt="Dish preview" />
+            </div>
+          )}
+
+          <div className="ingredients-section">
+            <p>Enter the ingredients:</p>
+            <AddIngredients setIngredientList={setIngredientList} />
+            <ul className="ingredient-list">
+              {ingredientList.map((item, index) => (
+                <li key={index}>
+                  {item.ingredientName} — {item.ingredientQuantity}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="instructions-section">
+            <p>Enter the instructions:</p>
+            <AddInstructions setInstructionList={setInstructionList} />
+            <ol className="instruction-list">
+              {instructionList.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ol>
+          </div>
+
+          <button type="submit" className="submit-btn">
+            Submit Recipe
+          </button>
+        </form>
+
+        {showPopup && (
+          <div className="popup-overlay">
+            <div className="popup">
+              <h3>Recipe saved!</h3>
+              <p>Your recipe has been added successfully.</p>
+              <button onClick={() => navigate("/")}>Go to Home</button>
+              <button onClick={() => setShowPopup(false)}>
+                Add another recipe
+              </button>
+            </div>
           </div>
         )}
-
-        <div className="ingredients-section">
-          <p>Enter the ingredients:</p>
-          <AddIngredients setIngredientList={setIngredientList} />
-          <ul className="ingredient-list">
-            {ingredientList.map((item, index) => (
-              <li key={index}>
-                {item.ingredientName} — {item.ingredientQuantity}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="instructions-section">
-          <p>Enter the instructions:</p>
-          <AddInstructions setInstructionList={setInstructionList} />
-          <ol className="instruction-list">
-            {instructionList.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ol>
-        </div>
-
-        <button type="submit" className="submit-btn">
-          Submit Recipe
-        </button>
-      </form>
-
-      {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup">
-            <h3>Recipe saved!</h3>
-            <p>Your recipe has been added successfully.</p>
-            <button onClick={() => navigate("/")}>Go to Home</button>
-            <button onClick={() => setShowPopup(false)}>
-              Add another recipe
-            </button>
-          </div>
-        </div>
-      )}
+      </div>
     </div>
   );
 };

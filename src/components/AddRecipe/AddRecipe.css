@@ -1,16 +1,15 @@
-
 /* Container */
 .add-recipe {
   width: 95%;
   max-width: 1350px;
-  margin: 2rem 0 2rem 2%;   /* left align with some margin */
+  margin: 2rem 0 2rem 2%;
   padding: 2rem;
   background: #f5f9fc;
   border-radius: 10px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   text-align: left;
   font-family: Arial, sans-serif;
-  box-sizing: border-box;    /* safer sizing baseline */
+  box-sizing: border-box;
 }
 
 /* Input fields (scoped to avoid global styling) */
@@ -39,8 +38,7 @@
 }
 
 /* Forms */
-.recipe-form
-{
+.recipe-form {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -49,17 +47,17 @@
 }
 .ingredients-input {
   display: flex;
-  gap: 0.5rem;       /* keeps them close but not glued */
+  gap: 0.5rem; /* keeps them close but not glued */
   align-items: center;
 }
 
 #ingredient {
-  flex: 1;           /* fills available space */
-  width: 180px;  /* never shrink too small */
+  flex: 1; /* fills available space */
+  width: 180px; /* never shrink too small */
 }
 
 #quantity {
-  width: 60px;       /* fixed smaller size */
+  width: 60px; /* fixed smaller size */
 }
 
 /* Labels (scoped to avoid global styling) */
@@ -94,7 +92,7 @@
   overflow-wrap: anywhere; /* breaks super-long words/URLs */
   max-width: 90%;
 }
-.submit-btn{
+.submit-btn {
   align-self: center;
   margin-top: 2rem;
   padding: 0.8rem 1.5rem;
@@ -103,23 +101,21 @@
 .popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .popup {
-  background:#e6f2ff;
+  background: #e6f2ff;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
-   
 }
 .popup button + button {
   margin-left: 10px;
 }
-
 
 .file-input {
   max-width: 400px;
@@ -137,7 +133,7 @@
   height: 120px;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .image-preview .image-name {
