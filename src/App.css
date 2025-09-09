@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+.background-image {
+  position: fixed;
+  inset: 0;
+  background: url("/background.webp") ;
+  z-index: -1;        
+  pointer-events: none; 
+}
+.app-content {
+  padding-top: 70px;
+}
+
+

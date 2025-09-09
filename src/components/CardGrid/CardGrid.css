@@ -1,0 +1,14 @@
+.card-grid {
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 800px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #111827;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.home__header {
+  background: rgba(229, 231, 235, 0.8);
+  border-radius: 12px;
+}

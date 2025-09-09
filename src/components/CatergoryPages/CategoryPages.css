@@ -1,0 +1,14 @@
+.home__header {
+  background: rgba(229, 231, 235, 0.8);
+  border-radius: 12px;
+}
+
+.category-page {
+  background: rgba(255, 248, 240, 0.9);
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 800px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif;
+  color: #111827;
+}

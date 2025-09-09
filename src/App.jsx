@@ -1,23 +1,48 @@
-import "./App.css";
-import Home from "./Home/Home.jsx";
-import About from "./About.jsx";
-import AddRecipe from "./AddRecipe/AddRecipe.jsx";
 import { Routes, Route, Link } from "react-router-dom";
+import { useState } from "react";
+
+import "./App.css";
+
+import { recipes } from "./Data/RecipesData.js";
+import Navbar from "./components/Layout/Navbar/Navbar.jsx";
+import Home from "./components/Home/Home.jsx";
+import About from "./About.jsx";
+import AddRecipe from "./components/AddRecipe/AddRecipe.jsx";
+import CategoryPages from "./components/CatergoryPages/CategoryPages.jsx";
+import RecipePage from "./components/RecipePage/RecipePage.jsx";
 
 const App = () => {
+  const [recipeList, setRecipeList] = useState(recipes);
+
   return (
     <>
-      <div>
+      <div className="background-image" />
+
+      <Navbar />
+
+      <div className="app-content">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home recipeList={recipeList} />} />
+          <Route
+            path="/recipes/:id"
+            element={<RecipePage recipeList={recipeList} />}
+          />
+
           <Route path="/about" element={<About />} />
-          <Route path="/AddRecipe" element={<AddRecipe />} />
+          <Route
+            path="/:category"
+            element={<CategoryPages recipeList={recipeList} />}
+          />
+          <Route
+            path="/AddRecipe"
+            element={<AddRecipe setRecipeList={setRecipeList} />}
+          />
         </Routes>
+
+        <nav>
+          <Link to="/about">About</Link>
+        </nav>
       </div>
-      <nav>
-        {/* <Link to="/">Home</Link> */}
-        <Link to="/about">About</Link>
-      </nav>
     </>
   );
 };
